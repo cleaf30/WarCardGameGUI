@@ -1,5 +1,5 @@
 # WarCardGameGUI
--Simulates the card game war with the computer.
+  Simulates the card game war with the computer.
 A deck of card is shuffled and dealt.
 The player and the computer both take a card off the top and flip it over.
 Whoever has the the higher ranking card wins and takes both cards (Aces high).
