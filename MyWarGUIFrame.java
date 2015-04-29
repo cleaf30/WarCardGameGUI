@@ -8,111 +8,108 @@ import java.awt.event.*;
 import javax.swing.*;
 
 
-public class WarGUI
-{
-   public static void main(String [] args) 
-   {
-      JFrame frame = new MyFrame("War");
-      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-      frame.pack();
-      frame.setVisible(true);
-
-   }
-}
-
-class MyFrame extends JFrame 
+class MyWarGUIFrame extends JFrame 
 {
    // create panel containers
    private JPanel p1,p2,p3;
    private JButton playButton;
    private JLabel compHand, compCard, compMessage, playerHand, playerCard,
-    playerMessage, genMessage, buttonLabel, playerHeader, playerNum, compHeader, compNum;
+   playerMessage, genMessage, buttonLabel, playerHeader, playerNum, compHeader, compNum;
    War game = new War();//create instance of game of war
 
-   
-   public MyFrame(String s) 
+   /**
+      Create frame, format, insert panels and insert labels.
+      @param s title of the frame
+   */
+   public MyWarGUIFrame(String s) 
    {
       super (s);
       
       // layout of "this" JFrame
-      setLayout(new GridLayout(3,1));
+      setLayout(new GridLayout(3,1));//three horizontal sections
        
-      // computer's panel
+      ///////////////////////////////////////////// 
+      // computer's panel//////////////////////////
+      /////////////////////////////////////////////
       p1 = new JPanel();
-      p1.setBackground(Color.RED);
-      p1.setLayout(new GridLayout(1,3));
+      p1.setBackground(Color.RED);//red background
+      p1.setLayout(new GridLayout(1,3));//three vertical sections
       
-      //computer's hand
+      //computer's hand----------------------------
       compHand = new JLabel();
-      compHand.setIcon(new ImageIcon("back.jpg"));
-      compHand.setHorizontalAlignment(JLabel.CENTER);
+      compHand.setIcon(new ImageIcon("back.jpg"));//show back of a card
+      compHand.setHorizontalAlignment(JLabel.CENTER);//align
       p1.add(compHand);
       
-      //computer's card
+      //computer's card----------------------------
       compCard = new JLabel();
-      compCard.setHorizontalAlignment(JLabel.CENTER);
+      compCard.setHorizontalAlignment(JLabel.CENTER);//align
       p1.add(compCard);
 
-      //computer's message - # of cards in hand
+      //computer's message - # of cards in hand----
       compMessage = new JLabel();
-      compMessage.setLayout(new GridLayout(2,0));
+      compMessage.setLayout(new GridLayout(2,0));//two horizontal sections
       compHeader = new JLabel();
-      compHeader.setText("Cards in computer's hand:");
-      compHeader.setFont(new Font("Serif", Font.BOLD, 12));
-      compHeader.setHorizontalAlignment(JLabel.CENTER);
+      compHeader.setText("Cards in computer's hand:");//header
+      compHeader.setFont(new Font("Serif", Font.BOLD, 12));//format
+      compHeader.setHorizontalAlignment(JLabel.CENTER);//align
       compNum = new JLabel(); 
-      compNum.setText(Integer.toString(game.sizePlayersHand()));
-      compNum.setFont(new Font("Serif", Font.BOLD, 40));
-      compNum.setHorizontalAlignment(JLabel.CENTER);
+      compNum.setText(Integer.toString(game.sizePlayersHand()));//display number of cards in hand
+      compNum.setFont(new Font("Serif", Font.BOLD, 40));//format
+      compNum.setHorizontalAlignment(JLabel.CENTER);//align
       compMessage.add(compHeader);
       compMessage.add(compNum);
       p1.add(compMessage);
 
-      //divider / play button / message board  
+      ////////////////////////////////////////
+      //divider / play button / message board/
+      ////////////////////////////////////////  
       p2 = new JPanel();
-      p2.setBackground(Color.WHITE);
-      p2.setLayout(new GridLayout(2,0));
-      //general message board
-      genMessage = new JLabel("Game of War");
-      genMessage.setHorizontalAlignment(JLabel.CENTER);
-      genMessage.setFont(new Font("Serif", Font.BOLD, 30));
+      p2.setBackground(Color.WHITE);//white background
+      p2.setLayout(new GridLayout(2,0));//two horizontal sections
+      //general message board----------------
+      genMessage = new JLabel("Game of War");//create label
+      genMessage.setHorizontalAlignment(JLabel.CENTER);//align
+      genMessage.setFont(new Font("Serif", Font.BOLD, 30));//format
       p2.add(genMessage);
-      // create button 
-      playButton = new JButton("PLAY");
-      playButton.setFont(new Font("Serif", Font.BOLD, 30));
+      // create button----------------------- 
+      playButton = new JButton("PLAY");//create button
+      playButton.setFont(new Font("Serif", Font.BOLD, 30));//format
       p2.add(playButton);
-      playButton.addActionListener(new ButtonListener());
+      playButton.addActionListener(new ButtonListener());//add action listener for the button
 
-      //player's panel
+      /////////////////////////////////////////
+      //player's panel/////////////////////////
+      /////////////////////////////////////////
       p3 = new JPanel();
-      p3.setBackground(Color.BLUE);
-      p3.setLayout(new GridLayout(1,3));
-      //player's message - # of cards in hand
+      p3.setBackground(Color.BLUE);//blue background
+      p3.setLayout(new GridLayout(1,3));//three vertical sections
+      //player's message - # of cards in hand--
       playerMessage = new JLabel();
-      playerMessage.setLayout(new GridLayout(2,0));
-      //header
+      playerMessage.setLayout(new GridLayout(2,0));//two horizontal sections
+      //header---------------------------------
       playerHeader = new JLabel();
-      playerHeader.setText("Cards in your hand:");
-      playerHeader.setFont(new Font("Serif", Font.BOLD, 14));
-      playerHeader.setHorizontalAlignment(JLabel.CENTER);
-      playerHeader.setForeground(Color.WHITE);
-      //actual # in hand
+      playerHeader.setText("Cards in your hand:");//text for header
+      playerHeader.setFont(new Font("Serif", Font.BOLD, 14));//format
+      playerHeader.setHorizontalAlignment(JLabel.CENTER);//align
+      playerHeader.setForeground(Color.WHITE);//set text color to white
+      //actual # in hand-----------------------
       playerNum = new JLabel();
-      playerNum.setText(Integer.toString(game.sizePlayersHand()));
-      playerNum.setFont(new Font("Serif", Font.BOLD, 40));
-      playerNum.setHorizontalAlignment(JLabel.CENTER);
-      playerNum.setForeground(Color.WHITE);
+      playerNum.setText(Integer.toString(game.sizePlayersHand()));//set to number of cards in hand
+      playerNum.setFont(new Font("Serif", Font.BOLD, 40));//format
+      playerNum.setHorizontalAlignment(JLabel.CENTER);//align
+      playerNum.setForeground(Color.WHITE);//set text color
       playerMessage.add(playerHeader);
       playerMessage.add(playerNum);
       p3.add(playerMessage);
-      //player's card
+      //player's card---------------------------
       playerCard = new JLabel();
-      playerCard.setHorizontalAlignment(JLabel.CENTER);
+      playerCard.setHorizontalAlignment(JLabel.CENTER);//align
       p3.add(playerCard);
-      //player's deck
+      //player's deck---------------------------
       playerHand = new JLabel();
-      playerHand.setIcon(new ImageIcon("back.jpg"));
-      playerHand.setHorizontalAlignment(JLabel.CENTER);
+      playerHand.setIcon(new ImageIcon("back.jpg"));//set as the back of a card
+      playerHand.setHorizontalAlignment(JLabel.CENTER);//align
       p3.add(playerHand);
 
 
@@ -123,8 +120,16 @@ class MyFrame extends JFrame
      
       
    }
-   // private inner class (can see private data of containing class)
-   class ButtonListener implements ActionListener{
+   /**
+      Universal button
+      handles all the input for the GUI
+   */
+   class ButtonListener implements ActionListener
+      {
+      /**
+         If the button is pressed do the next step
+         The next step depends on what the button is currently diplaying and goes from there
+      */
       public void actionPerformed (ActionEvent e) 
       {
          if (playButton.getText() == "PLAY" || playButton.getText() == "PLAY NEXT CARD")

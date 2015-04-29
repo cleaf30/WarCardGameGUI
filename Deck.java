@@ -121,7 +121,12 @@ public class Deck
       }
       return curr;
   } // end find
-
+   
+  /**
+      get the card at the specified index
+      @param index index of the desired card
+      @return the card obect at the specified index
+  */
   public Card get(int index) 
                 throws ListIndexOutOfBoundsException {
     if (index >= 1 && index <= numItems) {

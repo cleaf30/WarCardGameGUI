@@ -9,7 +9,12 @@ public abstract class Game
    Card newCard, card1, card2, card1down, card2down;
    Deck d, hand1, hand2, pile; 
    int rank, suit, cardsInDeck, index, deck, cont;
-      
+   
+   /**
+      create a new game
+      there will be two shuffled hands in the hand1 and hand2 deck objects
+      and a deck object pile to store cards intermittenly during game play
+   */   
    public Game()
    {
       d = new Deck();
@@ -21,7 +26,8 @@ public abstract class Game
    }
    
    /**
-      get the appropriate picture for the player aka card 1
+      get the appropriate picture for the player 
+      @return file name for a picture of the user's card 
    */
    public String getPlayerCard()
    {
@@ -29,7 +35,8 @@ public abstract class Game
    }
    
    /**
-      get the appropriate picture for the computer aka card 2
+      get the appropriate picture for the computer
+      @return file name for a picture of the computer's card 
    */   
    public String getCompCard()
    {
@@ -38,6 +45,7 @@ public abstract class Game
    
    /**
       get the number of cards in the player's hand
+      @return number of cards in player's hand
    */
    public int sizePlayersHand()
    {
@@ -46,6 +54,7 @@ public abstract class Game
    
    /**
       get the number of cards in the computer's hand
+      @return number of cards in computer's hand
    */
    public int sizeCompHand()
    {

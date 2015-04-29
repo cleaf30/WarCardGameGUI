@@ -3,7 +3,6 @@
    CS 110
 */
 
-import java.util.Scanner;
 
 public class War extends Game
 {
@@ -31,12 +30,8 @@ public class War extends Game
          card2 = hand2.get(hand2.size());//get card
          hand1.remove(hand1.size());//remove card from the hand
          hand2.remove(hand2.size());//remove card from the hand
-         System.out.print(card1);
-         System.out.print(" vs. ");
-         System.out.println(card2);
          if (card1.compareTo(card2) == 0)//Tie
          {
-            System.out.println("Tie");
             //add tied cards to pile
             pile.add(card1);
             pile.add(card2);
@@ -52,7 +47,6 @@ public class War extends Game
          }
          else if (card1.compareTo(card2) > 0)//card1 is bigger
          {
-            System.out.println("You Won!");
             //player1 takes cards
             hand1.add(card2);
             hand1.add(card1);
@@ -68,7 +62,6 @@ public class War extends Game
          }
          else//card2 is bigger
          {
-            System.out.println("The computer won.");
             //player2 takes cards
             hand2.add(card1);
             hand2.add(card2);
@@ -84,13 +77,13 @@ public class War extends Game
          }  
       
       }
-      catch (ListIndexOutOfBoundsException e)
+      catch (ListIndexOutOfBoundsException e)//tried to acess cards in a tie but someone ran out
       {
-      if (hand1.isEmpty())
+      if (hand1.isEmpty())//user ran out of cards
       {
          outcome = "The computer won";
       }
-      else
+      else//computer ran out of cards
       {
          outcome = "You Won!";
       }
