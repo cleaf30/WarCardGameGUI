@@ -7,3 +7,5 @@ If both cards are of the same rank each player puts a card face down and then an
 Whoever has the higher face up card wins all the cards.
 If its a tie it happens again until someone wins.
 If someone runs out of cards at any point they loose.
+
+Put all .java and .jpg files in your jGrasp (or comparable) directory and run WarGUIDriver.java.
