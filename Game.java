@@ -27,7 +27,10 @@ public abstract class Game
    
    /**
       get the appropriate picture for the player 
+<<<<<<< HEAD
       @return file name for a picture of the user's card 
+=======
+>>>>>>> origin/master
    */
    public String getPlayerCard()
    {
@@ -35,8 +38,12 @@ public abstract class Game
    }
    
    /**
+<<<<<<< HEAD
       get the appropriate picture for the computer
       @return file name for a picture of the computer's card 
+=======
+      get the appropriate picture for the computer 
+>>>>>>> origin/master
    */   
    public String getCompCard()
    {

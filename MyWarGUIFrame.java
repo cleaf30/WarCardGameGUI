@@ -7,7 +7,10 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+<<<<<<< HEAD:MyWarGUIFrame.java
 
+=======
+>>>>>>> origin/master:MyWarGUIFrame.java
 class MyWarGUIFrame extends JFrame 
 {
    // create panel containers
@@ -19,8 +22,12 @@ class MyWarGUIFrame extends JFrame
 
    /**
       Create frame, format, insert panels and insert labels.
+<<<<<<< HEAD:MyWarGUIFrame.java
       @param s title of the frame
    */
+=======
+   */   
+>>>>>>> origin/master:MyWarGUIFrame.java
    public MyWarGUIFrame(String s) 
    {
       super (s);
