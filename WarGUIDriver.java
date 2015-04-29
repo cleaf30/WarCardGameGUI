@@ -12,7 +12,7 @@ public class WarGUIDriver
 {
    public static void main(String [] args) 
    {
-      JFrame frame = new MyFrame("War");
+      JFrame frame = new MyWarGUIFrame("War");
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       frame.pack();
       frame.setVisible(true);
